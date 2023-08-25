@@ -60,10 +60,14 @@ class _LoginPageState extends State<LoginPage> {
                       TextStyle(color: Color.fromARGB(255, 169, 169, 169)),
                   hintText: 'Masukkan Password',
                   border: InputBorder.none,
-                  suffixIcon: Icon(Icons.remove_red_eye),
+                  suffixIcon: IconButton(onPressed: (){
+                    setState(() {
+                      _isObscure = !_isObscure;
+                    });
+                  }, icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off)),
                 ),
                 style: TextStyle(fontSize: 14),
-                obscureText: true,
+                obscureText: _isObscure,
               ),
             ),
             SizedBox(
