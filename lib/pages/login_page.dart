@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:kampusku_app/pages/homepage.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  //validate show password
+  bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -48,20 +56,27 @@ class LoginPage extends StatelessWidget {
                           TextStyle(color: Color.fromARGB(255, 169, 169, 169)),
                       hintText: 'Masukkan Password',
                       border: InputBorder.none,
-                      suffixIcon: Icon(Icons.remove_red_eye),
+                      suffixIcon: IconButton(
+                        onPressed: (){
+                          setState(() {
+                            _isObscure = !_isObscure;
+                          });
+                        },
+                         icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
+                         ),
                     ),
                     style: TextStyle(fontSize: 14),
-                    obscureText: true,
+                    obscureText: _isObscure,
                   ),
                 ),
                 SizedBox(height: 80,),
                 Center(
                   child: ElevatedButton(
                     onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   // MaterialPageRoute(builder: (context) => ),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomePage()),
+                      );
                     },
                     child: Text(
                       'Login',
