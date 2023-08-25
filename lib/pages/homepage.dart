@@ -10,6 +10,7 @@ class HomePage extends StatelessWidget {
         children: [
           Container(
             height: 180,
+            width: double.infinity,
             color: Color.fromARGB(255, 97, 75, 195),
           ),
           Padding(
@@ -64,8 +65,15 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 90, top: 60),
-                    child: Image.asset('assets/logo_notif.png'),
+                    padding: const EdgeInsets.only(left: 80, top: 60),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.notification_add,
+                        color: Colors.white,
+                        size: 35,
+                      ),
+                    ),
                   ),
                 ],
               )
