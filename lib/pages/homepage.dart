@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
+import '../models/homepage_model.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -16,6 +18,7 @@ class _HomePageState extends State<HomePage> {
       width: 350,
       child: Image.asset(
         'assets/banner_homepage.png',
+        height: 100,
         fit: BoxFit.fill,
       ),
       decoration: BoxDecoration(
@@ -27,6 +30,7 @@ class _HomePageState extends State<HomePage> {
       width: 350,
       child: Image.asset(
         'assets/banner_homepage.png',
+        height: 100,
         fit: BoxFit.fill,
       ),
       decoration: BoxDecoration(
@@ -35,12 +39,49 @@ class _HomePageState extends State<HomePage> {
       ),
     ),
     Container(
-        width: 350,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.red,
-        )),
+      width: 350,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.red,
+      ),
+    ),
   ];
+
+  List<GojekService> _gojekServiceList = [];
+
+  @override
+  void initState() {
+    super.initState();
+
+    _gojekServiceList.add(GojekService(
+        image: Image.asset('assets/kelas.png'),
+        color: Colors.yellow,
+        title: "Kelas"));
+    _gojekServiceList.add(GojekService(
+        image: Image.asset('assets/perpustakaan.png'),
+        color: Colors.yellow,
+        title: "Perpustakaan"));
+    _gojekServiceList.add(GojekService(
+        image: Image.asset('assets/logo_hasilstudi.png'),
+        color: Colors.yellow,
+        title: "Hasil Studi"));
+    _gojekServiceList.add(GojekService(
+        image: Image.asset('assets/transkrip.png'),
+        color: Colors.yellow,
+        title: "Transkrip"));
+    _gojekServiceList.add(GojekService(
+        image: Image.asset('assets/ktm.png'),
+        color: Colors.yellow,
+        title: "KTM"));
+    _gojekServiceList.add(GojekService(
+        image: Image.asset('assets/pembayaran.png'),
+        color: Colors.yellow,
+        title: "Pembayaran"));
+    _gojekServiceList.add(GojekService(
+        image: Image.asset('assets/jadwal_ujian.png'),
+        color: Colors.yellow,
+        title: "Jadwal Ujian"));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +107,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
@@ -155,9 +197,69 @@ class _HomePageState extends State<HomePage> {
                   );
                 }).toList(),
               ),
+              SizedBox(
+                height: 12,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(
+                  'Menu',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              _buildGojekServicesMenu(),
+              Text('Jadwal')
             ],
           )
         ],
+      ),
+    );
+  }
+
+  Widget _buildGojekServicesMenu() {
+    return SizedBox(
+        width: double.infinity,
+        height: 220,
+        child: Container(
+            margin: EdgeInsets.only(bottom: 8),
+            child: GridView.builder(
+                padding: EdgeInsets.zero,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: 7,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4),
+                itemBuilder: (context, position) {
+                  return _rowGojekService(_gojekServiceList[position]);
+                })));
+  }
+
+  Widget _rowGojekService(GojekService) {
+    return InkWell(
+      onTap: () {},
+      child: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                CircleAvatar(
+                  radius: 30,
+                  backgroundColor: Colors.green,
+                ),
+                GojekService.image
+              ],
+            ),
+            Padding(padding: EdgeInsets.only(top: 7)),
+            Text(
+              GojekService.title,
+              style: TextStyle(fontSize: 10),
+            )
+          ],
+        ),
       ),
     );
   }
