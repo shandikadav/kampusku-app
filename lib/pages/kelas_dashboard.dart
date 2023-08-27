@@ -30,7 +30,7 @@ class KelasDashboard extends StatelessWidget {
         body: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Stack(children: [
@@ -80,9 +80,69 @@ class KelasDashboard extends StatelessWidget {
                       ),
                     ],
                   ),
-                ]),
+                ]
+                ),
               ),
             ),
+            const SizedBox(height: 10),
+            Expanded(
+              child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+                    child: InkWell(
+                      onTap: (){},
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Container(
+                          height: 60,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: const Color.fromARGB(20, 0, 0, 0),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 20),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                CircleAvatar(
+                                  backgroundColor: Color.fromRGBO(21, 80, 60, 1.0),
+                                  child: Image.asset("assets/logo_subject.png"),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text("Subject 1",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14
+                                      ),
+                                      ),
+                                      SizedBox(height: 1,),
+                                      Text("Description",
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 12
+                                      ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                }
+                ),
+            )
           ],
         ),
       ),
