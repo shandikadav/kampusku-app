@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kampusku_app/pages/homepage.dart';
+import 'package:kampusku_app/pages/kelas_dashboard.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -78,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) =>HomePage()),
+                    MaterialPageRoute(builder: (context) => const KelasDashboard()),
                   );
                 },
                 child: Text(
