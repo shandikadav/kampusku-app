@@ -18,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
       home: Scaffold(
         body: ListView(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 100,
             ),
             Container(
@@ -29,11 +29,11 @@ class _LoginPageState extends State<LoginPage> {
                 height: 48,
               )),
             ),
-            SizedBox(
+            const SizedBox(
               height: 100,
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+            const Padding(
+              padding: EdgeInsets.only(top: 20, left: 20, right: 20),
               child: TextField(
                 decoration: InputDecoration(
                   filled: true,
@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                 style: TextStyle(fontSize: 14),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Padding(
@@ -54,10 +54,10 @@ class _LoginPageState extends State<LoginPage> {
               child: TextField(
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Color.fromARGB(255, 246, 246, 246),
+                  fillColor: const Color.fromARGB(255, 246, 246, 246),
                   labelText: 'Password',
                   labelStyle:
-                      TextStyle(color: Color.fromARGB(255, 169, 169, 169)),
+                      const TextStyle(color: Color.fromARGB(255, 169, 169, 169)),
                   hintText: 'Masukkan Password',
                   border: InputBorder.none,
                   suffixIcon: IconButton(onPressed: (){
@@ -66,11 +66,11 @@ class _LoginPageState extends State<LoginPage> {
                     });
                   }, icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off)),
                 ),
-                style: TextStyle(fontSize: 14),
+                style: const TextStyle(fontSize: 14),
                 obscureText: _isObscure,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 80,
             ),
             Center(
@@ -78,16 +78,16 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(builder: (context) => const HomePage()),
                   );
                 },
                 child: Text(
                   'Login',
-                  style: TextStyle(fontSize: 13),
+                  style: const TextStyle(fontSize: 13),
                 ),
                 style: ElevatedButton.styleFrom(
-                    primary: Color.fromARGB(255, 97, 75, 195),
-                    minimumSize: Size(335, 45)),
+                    backgroundColor: const Color.fromARGB(255, 97, 75, 195),
+                    minimumSize: const Size(335, 45)),
               ),
             ),
           ],
