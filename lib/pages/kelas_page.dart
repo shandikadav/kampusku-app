@@ -13,20 +13,20 @@ class KelasPage extends StatelessWidget {
             highlightColor: Colors.transparent,
             splashColor: Colors.transparent,
             onPressed: () {},
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back_ios,
               size: 20,
               color: Colors.black,
             ),
           ),
           backgroundColor: Colors.transparent,
-          titleTextStyle: TextStyle(
+          titleTextStyle: const TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
             fontSize: 16,
           ),
           elevation: 0,
-          title: Text("Kelas Saya"),
+          title: const Text("Kelas Saya"),
         ),
         body: ListView.builder(
             itemCount: 1,
@@ -38,7 +38,7 @@ class KelasPage extends StatelessWidget {
                   child: Container(
                     height: 120,
                     decoration: BoxDecoration(
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(color: Colors.black, blurRadius: 100.0),
                         ],
                         color: Colors.white,
@@ -55,8 +55,8 @@ class KelasPage extends StatelessWidget {
                                 width: 120,
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 25, top: 20),
+                            const Padding(
+                              padding: EdgeInsets.only(left: 25, top: 20),
                               child: Column(
                                 children: [
                                   Text(
@@ -69,7 +69,7 @@ class KelasPage extends StatelessWidget {
                                     height: 5,
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.only(right: 15),
+                                    padding: EdgeInsets.only(right: 15),
                                     child: Text(
                                       "Majid Rahardi, S.Kom., M.Eng",
                                       style: TextStyle(fontSize: 8),
@@ -77,7 +77,7 @@ class KelasPage extends StatelessWidget {
                                   ),
                                   Spacer(),
                                   Padding(
-                                    padding: const EdgeInsets.only(
+                                    padding: EdgeInsets.only(
                                         right: 60, bottom: 20),
                                     child: Text(
                                       "22S1I01",

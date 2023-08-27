@@ -25,7 +25,7 @@ class KelasDashboard extends StatelessWidget {
             fontSize: 16,
           ),
           elevation: 0,
-          title: Text("Kelas Saya"),
+          title: const Text("Kelas Saya"),
         ),
       ),
     );
