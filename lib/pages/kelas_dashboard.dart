@@ -53,7 +53,33 @@ class KelasDashboard extends StatelessWidget {
                       backgroundColor: Color.fromRGBO(200, 255, 224, 0.7),
                       radius: 30,
                     ),
-                  )
+                  ),
+                  const Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 25, top: 40),
+                        child: Text(
+                          "Komunikasi Data",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(right: 40, top: 2),
+                        child: Text(
+                          "22S1IF01",
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ]),
               ),
             ),
