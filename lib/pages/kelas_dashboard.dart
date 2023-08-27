@@ -5,7 +5,7 @@ class KelasDashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           leading: IconButton(
@@ -25,7 +25,39 @@ class KelasDashboard extends StatelessWidget {
             fontSize: 16,
           ),
           elevation: 0,
-          title: const Text("Kelas Saya"),
+          title: const Text("Dashboard Kelas"),
+        ),
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Stack(children: [
+                  Container(
+                    height: 120,
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 97, 75, 195),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 215, top: 2),
+                    child: CircleAvatar(
+                      radius: 50,
+                      backgroundColor: Color.fromARGB(180, 133, 230, 197),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 190, top: 55),
+                    child: CircleAvatar(
+                      backgroundColor: Color.fromRGBO(200, 255, 224, 0.7),
+                      radius: 30,
+                    ),
+                  )
+                ]),
+              ),
+            ),
+          ],
         ),
       ),
     );
