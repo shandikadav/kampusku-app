@@ -1,7 +1,46 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _current = 0;
+  final CarouselController _controller = CarouselController();
+  final List<Widget> imageSliders = [
+    Container(
+      width: 350,
+      child: Image.asset(
+        'assets/banner_homepage.png',
+        fit: BoxFit.fill,
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        // color: Colors.amber,
+      ),
+    ),
+    Container(
+      width: 350,
+      child: Image.asset(
+        'assets/banner_homepage.png',
+        fit: BoxFit.fill,
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        // color: Colors.amber,
+      ),
+    ),
+    Container(
+        width: 350,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.red,
+        )),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +115,46 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ],
-              )
+              ),
+              SizedBox(
+                height: 21,
+              ),
+              CarouselSlider(
+                items: imageSliders,
+                carouselController: _controller,
+                options: CarouselOptions(
+                  autoPlay: true,
+                  viewportFraction: 1,
+                  enlargeCenterPage: true,
+                  aspectRatio: 16 / 5,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      _current = index;
+                    });
+                  },
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: imageSliders.asMap().entries.map((entry) {
+                  return GestureDetector(
+                    onTap: () => _controller.animateToPage(entry.key),
+                    child: Container(
+                      width: 12.0,
+                      height: 12.0,
+                      margin:
+                          EdgeInsets.symmetric(vertical: 17, horizontal: 4.0),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: (Theme.of(context).brightness == Brightness.dark
+                                ? Colors.white
+                                : Color.fromARGB(255, 97, 75, 195))
+                            .withOpacity(_current == entry.key ? 0.9 : 0.2),
+                      ),
+                    ),
+                  );
+                }).toList(),
+              ),
             ],
           )
         ],
