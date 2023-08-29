@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-
 import '../models/homepage_model.dart';
 
 class HomePage extends StatefulWidget {
@@ -47,40 +46,75 @@ class _HomePageState extends State<HomePage> {
     ),
   ];
 
-  List<GojekService> _gojekServiceList = [];
+  List<MenuHomepage> _MenuList = [];
 
   @override
   void initState() {
     super.initState();
 
-    _gojekServiceList.add(GojekService(
-        image: Image.asset('assets/kelas.png'),
-        color: Colors.yellow,
-        title: "Kelas"));
-    _gojekServiceList.add(GojekService(
-        image: Image.asset('assets/perpustakaan.png'),
-        color: Colors.yellow,
-        title: "Perpustakaan"));
-    _gojekServiceList.add(GojekService(
-        image: Image.asset('assets/logo_hasilstudi.png'),
-        color: Colors.yellow,
-        title: "Hasil Studi"));
-    _gojekServiceList.add(GojekService(
-        image: Image.asset('assets/transkrip.png'),
-        color: Colors.yellow,
-        title: "Transkrip"));
-    _gojekServiceList.add(GojekService(
-        image: Image.asset('assets/ktm.png'),
-        color: Colors.yellow,
-        title: "KTM"));
-    _gojekServiceList.add(GojekService(
-        image: Image.asset('assets/pembayaran.png'),
-        color: Colors.yellow,
-        title: "Pembayaran"));
-    _gojekServiceList.add(GojekService(
-        image: Image.asset('assets/jadwal_ujian.png'),
-        color: Colors.yellow,
-        title: "Jadwal Ujian"));
+    _MenuList.add(MenuHomepage(
+      image: Image.asset(
+        'assets/kelas.png',
+        fit: BoxFit.fill,
+      ),
+      color: Color.fromARGB(255, 10, 40, 43),
+      title: "Kelas",
+      navigator: "/kelaspage",
+    ));
+    _MenuList.add(MenuHomepage(
+      image: Image.asset(
+        'assets/perpustakaan.png',
+        fit: BoxFit.fill,
+      ),
+      color: Color.fromARGB(255, 32, 32, 49),
+      title: "Perpustakaan",
+      navigator: "/login",
+    ));
+    _MenuList.add(MenuHomepage(
+      image: Image.asset(
+        'assets/logo_hasilstudi.png',
+        fit: BoxFit.fill,
+      ),
+      color: Color.fromARGB(255, 34, 23, 80),
+      title: "Hasil Studi",
+      navigator: "/kelaspage",
+    ));
+    _MenuList.add(MenuHomepage(
+      image: Image.asset(
+        'assets/transkrip.png',
+        fit: BoxFit.fill,
+      ),
+      color: Color.fromARGB(255, 21, 80, 60),
+      title: "Transkrip",
+      navigator: "/kelaspage",
+    ));
+    _MenuList.add(MenuHomepage(
+      image: Image.asset(
+        'assets/ktm.png',
+        fit: BoxFit.fill,
+      ),
+      color: Color.fromARGB(255, 32, 32, 49),
+      title: "KTM",
+      navigator: "/kelaspage",
+    ));
+    _MenuList.add(MenuHomepage(
+      image: Image.asset(
+        'assets/pembayaran.png',
+        fit: BoxFit.fill,
+      ),
+      color: Color.fromARGB(255, 10, 40, 43),
+      title: "Pembayaran",
+      navigator: "/kelaspage",
+    ));
+    _MenuList.add(MenuHomepage(
+      image: Image.asset(
+        'assets/jadwal_ujian.png',
+        fit: BoxFit.fill,
+      ),
+      color: Color.fromARGB(255, 34, 23, 80),
+      title: "Jadwal Ujian",
+      navigator: "/kelaspage",
+    ));
   }
 
   @override
@@ -109,45 +143,53 @@ class _HomePageState extends State<HomePage> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Container(
+                width: double.infinity,
+                height: 50,
+              ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 58, left: 21),
+                    padding: const EdgeInsets.only(left: 20),
                     child: Image.asset('assets/profile.png'),
                   ),
                   SizedBox(
                     width: 9,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 60),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'SHANDIKA DAVID ARDIANSYAH',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w700,
-                          ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'SHANDIKA DAVID ARDIANSYAH',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700,
                         ),
-                        SizedBox(
-                          height: 1,
+                      ),
+                      SizedBox(
+                        height: 1,
+                      ),
+                      Text(
+                        'Mahasiswa Aktif',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
                         ),
-                        Text(
-                          'Mahasiswa Aktif',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 80, top: 60),
-                    child: IconButton(
+                  SizedBox(
+                    width: 80,
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      print('tap');
+                    },
+                    icon: IconButton(
+                      padding: EdgeInsets.zero,
                       onPressed: () {},
                       icon: Icon(
                         Icons.notification_add,
@@ -210,8 +252,17 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              _buildGojekServicesMenu(),
-              Text('Jadwal')
+              _buildMenuHomepage(),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Text(
+                  'Jadwal Kuliah',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
+              )
             ],
           )
         ],
@@ -219,12 +270,13 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildGojekServicesMenu() {
+  Widget _buildMenuHomepage() {
     return SizedBox(
         width: double.infinity,
-        height: 220,
+        height: 230,
         child: Container(
-            margin: EdgeInsets.only(bottom: 8),
+            // color: Colors.amber,
+            margin: EdgeInsets.only(top: 12, bottom: 0),
             child: GridView.builder(
                 padding: EdgeInsets.zero,
                 physics: NeverScrollableScrollPhysics(),
@@ -232,13 +284,17 @@ class _HomePageState extends State<HomePage> {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 4),
                 itemBuilder: (context, position) {
-                  return _rowGojekService(_gojekServiceList[position]);
+                  return _rowMenuHomepage(_MenuList[position]);
                 })));
   }
 
-  Widget _rowGojekService(GojekService) {
+  Widget _rowMenuHomepage(MenuHomepage) {
     return InkWell(
-      onTap: () {},
+      highlightColor: Colors.transparent,
+      splashColor: Colors.transparent,
+      onTap: () {
+        Navigator.of(context).pushNamed(MenuHomepage.navigator);
+      },
       child: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -248,15 +304,19 @@ class _HomePageState extends State<HomePage> {
               children: [
                 CircleAvatar(
                   radius: 30,
-                  backgroundColor: Colors.green,
+                  backgroundColor: MenuHomepage.color,
                 ),
-                GojekService.image
+                Container(
+                  width: 25,
+                  height: 25,
+                  child: MenuHomepage.image,
+                )
               ],
             ),
             Padding(padding: EdgeInsets.only(top: 7)),
             Text(
-              GojekService.title,
-              style: TextStyle(fontSize: 10),
+              MenuHomepage.title,
+              style: TextStyle(fontSize: 12),
             )
           ],
         ),

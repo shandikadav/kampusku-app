@@ -56,15 +56,19 @@ class _LoginPageState extends State<LoginPage> {
                   filled: true,
                   fillColor: const Color.fromARGB(255, 246, 246, 246),
                   labelText: 'Password',
-                  labelStyle:
-                      const TextStyle(color: Color.fromARGB(255, 169, 169, 169)),
+                  labelStyle: const TextStyle(
+                      color: Color.fromARGB(255, 169, 169, 169)),
                   hintText: 'Masukkan Password',
                   border: InputBorder.none,
-                  suffixIcon: IconButton(onPressed: (){
-                    setState(() {
-                      _isObscure = !_isObscure;
-                    });
-                  }, icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off)),
+                  suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          _isObscure = !_isObscure;
+                        });
+                      },
+                      icon: Icon(_isObscure
+                          ? Icons.visibility
+                          : Icons.visibility_off)),
                 ),
                 style: const TextStyle(fontSize: 14),
                 obscureText: _isObscure,
@@ -76,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
             Center(
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(builder: (context) => const HomePage()),
                   );

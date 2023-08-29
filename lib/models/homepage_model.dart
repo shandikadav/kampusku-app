@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
-class GojekService {
+class MenuHomepage {
   Widget image;
   Color color;
   String title;
+  String navigator;
 
-  GojekService({required this.image, required this.title, required this.color});
+  MenuHomepage(
+      {required this.image,
+      required this.title,
+      required this.color,
+      required this.navigator});
 }
