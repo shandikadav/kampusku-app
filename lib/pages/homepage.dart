@@ -143,58 +143,58 @@ class _HomePageState extends State<HomePage> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
+              SizedBox(
                 width: double.infinity,
                 height: 50,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 20),
                     child: Image.asset('assets/profile.png'),
                   ),
-                  SizedBox(
-                    width: 9,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'SHANDIKA DAVID ARDIANSYAH',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w700,
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'SHANDIKA DAVID ARDIANSYAH',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 1,
-                      ),
-                      Text(
-                        'Mahasiswa Aktif',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
+                        SizedBox(
+                          height: 1,
                         ),
-                      ),
-                    ],
+                        Text(
+                          'Mahasiswa Aktif',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  SizedBox(
-                    width: 80,
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      print('tap');
-                    },
-                    icon: IconButton(
-                      padding: EdgeInsets.zero,
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.notification_add,
-                        color: Colors.white,
-                        size: 35,
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: IconButton(
+                      onPressed: () {
+                        print('tap');
+                      },
+                      icon: IconButton(
+                        padding: EdgeInsets.only(right: 21),
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.notification_add,
+                          color: Colors.white,
+                          size: 35,
+                        ),
                       ),
                     ),
                   ),
