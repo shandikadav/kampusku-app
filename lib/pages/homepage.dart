@@ -15,26 +15,26 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> imageSliders = [
     Container(
       width: 350,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        // color: Colors.amber,
+      ),
       child: Image.asset(
         'assets/banner_homepage.png',
         height: 100,
         fit: BoxFit.fill,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        // color: Colors.amber,
       ),
     ),
     Container(
       width: 350,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        // color: Colors.amber,
+      ),
       child: Image.asset(
         'assets/banner_homepage.png',
         height: 100,
         fit: BoxFit.fill,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        // color: Colors.amber,
       ),
     ),
     Container(
@@ -46,14 +46,14 @@ class _HomePageState extends State<HomePage> {
     ),
   ];
 
-  List<MenuHomepage> _MenuList = [];
+  final List<MenuHomepage> _menuList = [];
   
   @override
   
   void initState() {
     super.initState();
 
-    _MenuList.add(MenuHomepage(
+    _menuList.add(MenuHomepage(
       image: Image.asset(
         'assets/kelas.png',
         fit: BoxFit.fill,
@@ -62,57 +62,57 @@ class _HomePageState extends State<HomePage> {
       title: "Kelas",
       navigator: "/kelaspage",
     ));
-    _MenuList.add(MenuHomepage(
+    _menuList.add(MenuHomepage(
       image: Image.asset(
         'assets/perpustakaan.png',
         fit: BoxFit.fill,
       ),
-      color: Color.fromARGB(255, 32, 32, 49),
+      color: const Color.fromARGB(255, 32, 32, 49),
       title: "Perpustakaan",
       navigator: "/login",
     ));
-    _MenuList.add(MenuHomepage(
+    _menuList.add(MenuHomepage(
       image: Image.asset(
         'assets/logo_hasilstudi.png',
         fit: BoxFit.fill,
       ),
-      color: Color.fromARGB(255, 34, 23, 80),
+      color: const Color.fromARGB(255, 34, 23, 80),
       title: "Hasil Studi",
       navigator: "/kelaspage",
     ));
-    _MenuList.add(MenuHomepage(
+    _menuList.add(MenuHomepage(
       image: Image.asset(
         'assets/transkrip.png',
         fit: BoxFit.fill,
       ),
-      color: Color.fromARGB(255, 21, 80, 60),
+      color: const Color.fromARGB(255, 21, 80, 60),
       title: "Transkrip",
       navigator: "/kelaspage",
     ));
-    _MenuList.add(MenuHomepage(
+    _menuList.add(MenuHomepage(
       image: Image.asset(
         'assets/ktm.png',
         fit: BoxFit.fill,
       ),
-      color: Color.fromARGB(255, 32, 32, 49),
+      color: const Color.fromARGB(255, 32, 32, 49),
       title: "KTM",
       navigator: "/kelaspage",
     ));
-    _MenuList.add(MenuHomepage(
+    _menuList.add(MenuHomepage(
       image: Image.asset(
         'assets/pembayaran.png',
         fit: BoxFit.fill,
       ),
-      color: Color.fromARGB(255, 10, 40, 43),
+      color: const Color.fromARGB(255, 10, 40, 43),
       title: "Pembayaran",
       navigator: "/kelaspage",
     ));
-    _MenuList.add(MenuHomepage(
+    _menuList.add(MenuHomepage(
       image: Image.asset(
         'assets/jadwal_ujian.png',
         fit: BoxFit.fill,
       ),
-      color: Color.fromARGB(255, 34, 23, 80),
+      color: const Color.fromARGB(255, 34, 23, 80),
       title: "Jadwal Ujian",
       navigator: "/kelaspage",
     ));
@@ -154,7 +154,7 @@ class _HomePageState extends State<HomePage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   width: double.infinity,
                   height: 50,
                 ),
@@ -165,7 +165,7 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.only(left: 20),
                       child: Image.asset('assets/profile.png'),
                     ),
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
@@ -196,9 +196,9 @@ class _HomePageState extends State<HomePage> {
                           print('tap');
                         },
                         icon: IconButton(
-                          padding: EdgeInsets.only(right: 21),
+                          padding: const EdgeInsets.only(right: 21),
                           onPressed: () {},
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.notifications,
                             color: Colors.white,
                             size: 35,
@@ -208,7 +208,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 21,
                 ),
                 CarouselSlider(
@@ -235,24 +235,24 @@ class _HomePageState extends State<HomePage> {
                         width: 12.0,
                         height: 12.0,
                         margin:
-                            EdgeInsets.symmetric(vertical: 17, horizontal: 4.0),
+                            const EdgeInsets.symmetric(vertical: 17, horizontal: 4.0),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: (Theme.of(context).brightness ==
                                       Brightness.dark
                                   ? Colors.white
-                                  : Color.fromARGB(255, 97, 75, 195))
+                                  : const Color.fromARGB(255, 97, 75, 195))
                               .withOpacity(_current == entry.key ? 0.9 : 0.2),
                         ),
                       ),
                     );
                   }).toList(),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20),
+                const Padding(
+                  padding: EdgeInsets.only(left: 20),
                   child: Text(
                     'Menu',
                     style: TextStyle(
@@ -262,8 +262,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 _buildMenuHomepage(),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20),
+                const Padding(
+                  padding:  EdgeInsets.only(left: 20),
                   child: Text(
                     'Jadwal Kuliah',
                     style: TextStyle(
@@ -286,15 +286,15 @@ class _HomePageState extends State<HomePage> {
         height: 230,
         child: Container(
             // color: Colors.amber,
-            margin: EdgeInsets.only(top: 12, bottom: 0),
+            margin: const EdgeInsets.only(top: 12, bottom: 0),
             child: GridView.builder(
                 padding: EdgeInsets.zero,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: 7,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 4),
                 itemBuilder: (context, position) {
-                  return _rowMenuHomepage(_MenuList[position]);
+                  return _rowMenuHomepage(_menuList[position]);
                 })));
   }
 
@@ -305,31 +305,29 @@ class _HomePageState extends State<HomePage> {
       onTap: () {
         Navigator.of(context).pushNamed(MenuHomepage.navigator);
       },
-      child: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                CircleAvatar(
-                  radius: 30,
-                  backgroundColor: MenuHomepage.color,
-                ),
-                Container(
-                  width: 25,
-                  height: 25,
-                  child: MenuHomepage.image,
-                )
-              ],
-            ),
-            Padding(padding: EdgeInsets.only(top: 7)),
-            Text(
-              MenuHomepage.title,
-              style: TextStyle(fontSize: 12),
-            )
-          ],
-        ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              CircleAvatar(
+                radius: 30,
+                backgroundColor: MenuHomepage.color,
+              ),
+              SizedBox(
+                width: 25,
+                height: 25,
+                child: MenuHomepage.image,
+              )
+            ],
+          ),
+          const Padding(padding: EdgeInsets.only(top: 7)),
+          Text(
+            MenuHomepage.title,
+            style: const TextStyle(fontSize: 12),
+          )
+        ],
       ),
     );
   }
