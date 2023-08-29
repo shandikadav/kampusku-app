@@ -128,18 +128,24 @@ class _HomePageState extends State<HomePage> {
               height: 180,
               width: double.infinity,
               color: Color.fromARGB(255, 97, 75, 195),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 340, top: 73),
-              child: Image.asset(
-                'assets/Vector 1.png',
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 315, top: 100),
-              child: CircleAvatar(
-                backgroundColor: Color.fromARGB(255, 200, 255, 224),
-                radius: 20,
+              child: Stack(
+                children: [
+                  Positioned(
+                    left: 335,
+                    top: 70,
+                    child: Image.asset(
+                      'assets/Vector 1.png',
+                    ),
+                  ),
+                  Positioned(
+                    left: 300,
+                    top: 110,
+                    child: CircleAvatar(
+                      backgroundColor: Color.fromARGB(255, 200, 255, 224),
+                      radius: 25,
+                    ),
+                  ),
+                ],
               ),
             ),
             Column(
@@ -199,11 +205,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 10, right: 10),
-                  child: SizedBox(
-                    height: 21,
-                  ),
+                SizedBox(
+                  height: 21,
                 ),
                 CarouselSlider(
                   items: imageSliders,
@@ -232,7 +235,8 @@ class _HomePageState extends State<HomePage> {
                             EdgeInsets.symmetric(vertical: 17, horizontal: 4.0),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: (Theme.of(context).brightness == Brightness.dark
+                          color: (Theme.of(context).brightness ==
+                                      Brightness.dark
                                   ? Colors.white
                                   : Color.fromARGB(255, 97, 75, 195))
                               .withOpacity(_current == entry.key ? 0.9 : 0.2),
