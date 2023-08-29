@@ -120,43 +120,43 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            height: 180,
-            width: double.infinity,
-            color: Color.fromARGB(255, 97, 75, 195),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 366, top: 73),
-            child: Image.asset(
-              'assets/Vector 1.png',
+      body: SizedBox(
+        width: double.infinity,
+        child: Stack(
+          children: [
+            Container(
+              height: 180,
+              width: double.infinity,
+              color: Color.fromARGB(255, 97, 75, 195),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 325, top: 110),
-            child: CircleAvatar(
-              backgroundColor: Color.fromARGB(255, 200, 255, 224),
-              radius: 25,
-            ),
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: double.infinity,
-                height: 50,
+            Padding(
+              padding: const EdgeInsets.only(left: 340, top: 73),
+              child: Image.asset(
+                'assets/Vector 1.png',
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Image.asset('assets/profile.png'),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: Column(
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 315, top: 100),
+              child: CircleAvatar(
+                backgroundColor: Color.fromARGB(255, 200, 255, 224),
+                radius: 20,
+              ),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Image.asset('assets/profile.png'),
+                    ),
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
@@ -180,92 +180,95 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: IconButton(
-                      onPressed: () {
-                        print('tap');
-                      },
-                      icon: IconButton(
-                        padding: EdgeInsets.only(right: 21),
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.notification_add,
-                          color: Colors.white,
-                          size: 35,
+                    Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: IconButton(
+                        onPressed: () {
+                          print('tap');
+                        },
+                        icon: IconButton(
+                          padding: EdgeInsets.only(right: 21),
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.notifications,
+                            color: Colors.white,
+                            size: 35,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 21,
-              ),
-              CarouselSlider(
-                items: imageSliders,
-                carouselController: _controller,
-                options: CarouselOptions(
-                  autoPlay: true,
-                  viewportFraction: 1,
-                  enlargeCenterPage: true,
-                  aspectRatio: 16 / 5,
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      _current = index;
-                    });
-                  },
+                  ],
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: imageSliders.asMap().entries.map((entry) {
-                  return GestureDetector(
-                    onTap: () => _controller.animateToPage(entry.key),
-                    child: Container(
-                      width: 12.0,
-                      height: 12.0,
-                      margin:
-                          EdgeInsets.symmetric(vertical: 17, horizontal: 4.0),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: (Theme.of(context).brightness == Brightness.dark
-                                ? Colors.white
-                                : Color.fromARGB(255, 97, 75, 195))
-                            .withOpacity(_current == entry.key ? 0.9 : 0.2),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: SizedBox(
+                    height: 21,
+                  ),
+                ),
+                CarouselSlider(
+                  items: imageSliders,
+                  carouselController: _controller,
+                  options: CarouselOptions(
+                    autoPlay: true,
+                    viewportFraction: 1,
+                    enlargeCenterPage: true,
+                    aspectRatio: 16 / 5,
+                    onPageChanged: (index, reason) {
+                      setState(() {
+                        _current = index;
+                      });
+                    },
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: imageSliders.asMap().entries.map((entry) {
+                    return GestureDetector(
+                      onTap: () => _controller.animateToPage(entry.key),
+                      child: Container(
+                        width: 12.0,
+                        height: 12.0,
+                        margin:
+                            EdgeInsets.symmetric(vertical: 17, horizontal: 4.0),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: (Theme.of(context).brightness == Brightness.dark
+                                  ? Colors.white
+                                  : Color.fromARGB(255, 97, 75, 195))
+                              .withOpacity(_current == entry.key ? 0.9 : 0.2),
+                        ),
                       ),
+                    );
+                  }).toList(),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: Text(
+                    'Menu',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
                     ),
-                  );
-                }).toList(),
-              ),
-              SizedBox(
-                height: 12,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Text(
-                  'Menu',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
-              _buildMenuHomepage(),
-              Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Text(
-                  'Jadwal Kuliah',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
+                _buildMenuHomepage(),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: Text(
+                    'Jadwal Kuliah',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                    ),
                   ),
-                ),
-              )
-            ],
-          )
-        ],
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
