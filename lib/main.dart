@@ -16,10 +16,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => SplashPages(),
-        '/login': (context) => LoginPage(),
-        '/homepage': (context) => HomePage(),
-        '/kelaspage': (context) => KelasPage(),
+        '/': (context) => const SplashPages(),
+        '/login': (context) => const LoginPage(),
+        '/homepage': (context) => const HomePage(),
+        '/kelaspage': (context) => const KelasPage(),
       },
     );
   }
