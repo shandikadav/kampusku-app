@@ -47,8 +47,9 @@ class _HomePageState extends State<HomePage> {
   ];
 
   List<MenuHomepage> _MenuList = [];
-
+  
   @override
+  
   void initState() {
     super.initState();
 
@@ -119,6 +120,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQueryWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SizedBox(
         width: double.infinity,
@@ -126,20 +128,21 @@ class _HomePageState extends State<HomePage> {
           children: [
             Container(
               height: 180,
-              width: double.infinity,
+              width: mediaQueryWidth,
               color: Color.fromARGB(255, 97, 75, 195),
               child: Stack(
+                alignment: Alignment.topRight,
                 children: [
                   Positioned(
-                    left: 335,
-                    top: 70,
+                    bottom: 0,
+                    right: 0,
                     child: Image.asset(
                       'assets/Vector 1.png',
                     ),
                   ),
                   Positioned(
-                    left: 300,
-                    top: 110,
+                    bottom: 40,
+                    right: 10,
                     child: CircleAvatar(
                       backgroundColor: Color.fromARGB(255, 200, 255, 224),
                       radius: 25,
