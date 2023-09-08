@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kampusku_app/pages/borrowbook_page.dart';
 import 'package:kampusku_app/pages/homepage.dart';
 import 'package:kampusku_app/pages/kelas_page.dart';
 import 'package:kampusku_app/pages/login_page.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => const LoginPage(),
         '/homepage': (context) => const HomePage(),
         '/kelaspage': (context) => const KelasPage(),
+        '/borrowpage': (context) => const BorrowPage(),
       },
     );
   }
